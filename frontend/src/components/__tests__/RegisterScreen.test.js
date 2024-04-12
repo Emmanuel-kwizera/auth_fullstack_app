@@ -53,10 +53,8 @@ describe('RegisterScreen Component', () => {
 
     fireEvent.click(screen.getByText(/register/i));
 
-    // Wait for success message or redirect
     await waitFor(() => {
       expect(screen.getByText(/registration successful/i)).toBeInTheDocument();
-      // or expect redirection to another page
     });
   });
 });
