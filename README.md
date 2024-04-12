@@ -22,7 +22,7 @@ This is a simple Authentication System with both backend and frontend in the sam
 
 - Frontend:
   - HTML
-  - CSS
+  - TailwindCSS
   - JavaScript
   - React.js
 
