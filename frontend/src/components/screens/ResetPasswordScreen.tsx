@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import "./ResetPasswordScreen.css";
@@ -11,8 +11,10 @@ const ResetPasswordScreen = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const params = new URLSearchParams(window.location.search);
-  const match = { params: { resetToken: params.get("resetToken") } };
+  const params = useParams();
+
+  // const params = new URLSearchParams(window.location.search);
+  // const match = { params: { resetToken: params.get("resetToken") } };
 
   const resetPasswordHandler = async (e: any) => {
     e.preventDefault();
@@ -34,7 +36,7 @@ const ResetPasswordScreen = () => {
 
     try {
       const { data } = await axios.put(
-        url + `/api/auth/passwordreset/${match.params.resetToken}`,
+        url + `/api/auth/passwordreset/${params.resetToken}`,
         {
           password,
         },
